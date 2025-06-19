@@ -41,3 +41,13 @@ button:hover {
   padding: 0.5rem;
   border-bottom: 1px solid #eee;
 }
+
+
+.todo-text.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.todoComplete{
+  background-color: green;
+}

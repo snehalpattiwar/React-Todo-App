@@ -15,7 +15,7 @@ const App = () => {
   }, [todos]);
 
   const addTodo = (text) => {
-    setTodos([...todos, { id: Date.now(), text }]);
+    setTodos([...todos, { id: Date.now(), text, completed: false }]);
   };
 
   const updateTodo = (id, newText) => {
@@ -26,11 +26,19 @@ const App = () => {
     setTodos(todos.filter(todo => todo.id !== id));
   };
 
+  const toggleComplete = (id) => {
+  setTodos(
+    todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    )
+  );
+};
+
   return (
     <div className="todo-container">
       <h2>My To-Do List</h2>
       <TodoForm addTodo={addTodo} />
-      <TodoList todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo} />
+      <TodoList todos={todos} updateTodo={updateTodo} deleteTodo={deleteTodo} toggleComplete={toggleComplete}/>
     </div>
   );
 };

@@ -2,7 +2,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = ({ todos, updateTodo, deleteTodo }) => {
+const TodoList = ({ todos, updateTodo, deleteTodo, toggleComplete }) => {
   return (
     <div>
       {todos.map(todo => (
@@ -11,6 +11,7 @@ const TodoList = ({ todos, updateTodo, deleteTodo }) => {
           todo={todo}
           updateTodo={updateTodo}
           deleteTodo={deleteTodo}
+          toggleComplete={toggleComplete}
         />
       ))}
     </div>
